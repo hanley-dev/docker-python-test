@@ -1,0 +1,5 @@
+.dockerignore
+.pylintrc
+Dockerfile
+*.swp
+*.bat
