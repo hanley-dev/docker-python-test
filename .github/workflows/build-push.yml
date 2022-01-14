@@ -59,6 +59,7 @@ jobs:
           pwd
           ls -la
           ls -la /
+          ls -la /app
 #      - name: Install curl
 #        run: |
 #          apt-get install curl -y
