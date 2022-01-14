@@ -32,8 +32,8 @@ jobs:
       - name: Echo
         run: |
           echo ${{ env.REGISTRY }}
-          echo ${{ env.IMAGE_IMAGE_NAME }}
-          echo ${{ env.REGISTRY }}/${{ env.IMAGE_IMAGE_NAME }}:latest
+          echo ${{ env.IMAGE_NAME }}
+          echo ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           echo $IMAGE_TAG
 
       - name: Build and push
@@ -42,4 +42,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
