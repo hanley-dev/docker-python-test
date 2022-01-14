@@ -29,10 +29,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Echo
+        run: |
+          echo ${{ env.REGISTRY }}
+          echo ${{ env.IMAGE_IMAGE_NAME }}
+          echo ${{ env.REGISTRY }}/${{ env.IMAGE_IMAGE_NAME }}:latest
+          echo $IMAGE_TAG
+
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: $REGISTRY/$IMAGE_IMAGE_NAME:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_IMAGE_NAME }}:latest
