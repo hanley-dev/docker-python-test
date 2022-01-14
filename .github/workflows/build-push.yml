@@ -1,0 +1,21 @@
+name: Publish Docker Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  release:
+    types:
+      - published
+
+job:
+  build:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Container
+        run: |
+          docker build -t docker-python-test .
