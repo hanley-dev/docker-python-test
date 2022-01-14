@@ -1,4 +1,7 @@
 .dockerignore
+.git
+.github
+.gitignore
 .pylintrc
 Dockerfile
 *.swp
