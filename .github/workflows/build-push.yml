@@ -12,7 +12,6 @@ env:
 
 jobs:
   build:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -50,14 +49,13 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
   run:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     needs: build
     runs-on: ubuntu-latest
-    container:
-      # image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-      image: ghcr.io/hanley-dev/docker-python-test:latest
-      ports:
-        - 8080:8080
+    services:
+      test-container:
+        image: ghcr.io/hanley-dev/docker-python-test:latest
+        ports:
+          - 8080:8080
     steps:
       - name: List Files
         run: |
@@ -65,9 +63,6 @@ jobs:
           ls -la
           ls -la /
           ls -la /app
-#      - name: Install curl
-#        run: |
-#          apt-get install curl -y
-#      - name: Call endpoint
-#        run: |
-#          curl -v http://127.0.0.1:8080/
+      - name: Call endpoint
+        run: |
+          curl -v http://127.0.0.1:8080/
