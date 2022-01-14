@@ -37,15 +37,15 @@ jobs:
 #          docker run -d -p 8080:8080 $IMAGE_TAG
 #          curl -v http://127.0.0.1:8080/
 
-  run:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
-    needs: build
-    runs-on: ubuntu-latest
-    container:
-      image: docker-python-test
-      ports:
-        - 8080:8080
-    steps:
-      - name: Call endpoint
-        run: |
-          curl -v http://127.0.0.1:8080/
+#  run:
+#    if: "!contains(github.event.head_commit.message, 'skip ci')"
+#    needs: build
+#    runs-on: ubuntu-latest
+#    container:
+#      image: docker-python-test
+#      ports:
+#        - 8080:8080
+#    steps:
+#      - name: Call endpoint
+#        run: |
+#          curl -v http://127.0.0.1:8080/
