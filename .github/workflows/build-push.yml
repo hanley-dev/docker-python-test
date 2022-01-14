@@ -56,7 +56,7 @@ jobs:
     steps:
       - name: Install curl
         run: |
-          apt install curl -y
+          apt-get install curl -y
       - name: Call endpoint
         run: |
           curl -v http://127.0.0.1:8080/
