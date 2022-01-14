@@ -32,7 +32,7 @@ jobs:
       - name: Run Containers
         run: |
           docker run -d --rm -p 8080:8080 $IMAGE_TAG ls -l
-          curl http://localhost:8080/
       - name: Call endpoint
         run: |
+          docker run -d --rm -p 8080:8080 $IMAGE_TAG
           curl http://localhost:8080/
