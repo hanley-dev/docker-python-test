@@ -56,7 +56,9 @@ jobs:
     steps:
       - name: List Files
         run: |
+          pwd
           ls -la
+          ls -la /
 #      - name: Install curl
 #        run: |
 #          apt-get install curl -y
