@@ -62,7 +62,6 @@ jobs:
           pwd
           ls -la
           ls -la /
-          ls -la /app
       - name: Call endpoint
         run: |
           curl -v http://127.0.0.1:8080/
