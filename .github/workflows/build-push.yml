@@ -16,10 +16,14 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+      - name: List Initial Containers
+        run: |
+          docker images
       - name: Build Container
         env:
           IMAGE_TAG: docker-python-test
         run: |
-          docker images
           docker build -t $IMAGE_TAG .
+      - name: List Containers after Build
+        run: |
           docker images
