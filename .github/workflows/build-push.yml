@@ -54,9 +54,12 @@ jobs:
       ports:
         - 8080:8080
     steps:
-      - name: Install curl
+      - name: List Files
         run: |
-          apt-get install curl -y
-      - name: Call endpoint
-        run: |
-          curl -v http://127.0.0.1:8080/
+          ls -la
+#      - name: Install curl
+#        run: |
+#          apt-get install curl -y
+#      - name: Call endpoint
+#        run: |
+#          curl -v http://127.0.0.1:8080/
