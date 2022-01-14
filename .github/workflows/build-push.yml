@@ -39,7 +39,7 @@ jobs:
 
   run:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-    needs build
+    needs: build
     runs-on: ubuntu-latest
     env:
       IMAGE_TAG: docker-python-test
