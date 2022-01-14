@@ -49,7 +49,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     container:
-      image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      # image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      image: ghcr.io/hanley-dev/docker-python-test:latest
       ports:
         - 8080:8080
     steps:
