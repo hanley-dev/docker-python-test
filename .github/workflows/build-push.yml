@@ -43,7 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker-python-test
-      ports: 8080:8080
+      ports:
+        - 8080:8080
     steps:
       - name: Call endpoint
         run: |
