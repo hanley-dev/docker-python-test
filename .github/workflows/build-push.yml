@@ -17,5 +17,9 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
       - name: Build Container
+        env:
+          IMAGE_TAG: docker-python-test
         run: |
-          docker build -t docker-python-test .
+          docker images
+          docker build -t $IMAGE_TAG .
+          docker images
