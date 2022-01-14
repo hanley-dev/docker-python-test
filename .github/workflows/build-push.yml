@@ -27,3 +27,6 @@ jobs:
       - name: List Containers after Build
         run: |
           docker images
+      - name: Run Containers
+        run: |
+          docker run --rm $IMAGE_TAG ls -l
