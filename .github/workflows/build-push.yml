@@ -35,4 +35,4 @@ jobs:
       - name: Call endpoint
         run: |
           docker run -d -p 8080:8080 $IMAGE_TAG
-          curl -v http://localhost:8080/
+          curl -v http://127.0.0.1:8080/
